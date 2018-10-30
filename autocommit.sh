@@ -30,8 +30,8 @@ done
 
 shift $(($OPTIND - 1))
 
-git config --global user.email "${EMAIL}"
-git config --global user.name "${NAME}"
+git config --local user.email "${EMAIL}"
+git config --local user.name "${NAME}"
 
 if [ -z "${REPODIR}" ] || [ ! -z "${JELP}" ];
 then
