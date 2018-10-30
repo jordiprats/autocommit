@@ -1,5 +1,10 @@
 #!/bin/bash
 
+jelp()
+{
+  echo "$0 -r <repo dir> [-m <auto commit message>] [-e <author's email>] [-n <author's name>]"
+}
+
 INOTIFYWAITBIN=$(which inotifywait 2>/dev/null)
 
 if [ -z "${INOTIFYWAITBIN}" ];
@@ -27,6 +32,12 @@ shift $(($OPTIND - 1))
 
 git config --global user.email "${EMAIL}"
 git config --global user.name "${NAME}"
+
+if [ -z "${REPODIR}" ] || [ ! -z "${JELP}" ];
+then
+  jelp
+  exit 1
+fi
 
 while true;
 do
