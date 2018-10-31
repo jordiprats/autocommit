@@ -16,6 +16,7 @@ fi
 MESSAGE="automated commit"
 EMAIL="autocommit@systemadmin.es"
 NAME="Dr. Auto Commit"
+DEBUG="-qq"
 
 while getopts 'r:m:hpd' OPT; do
   case $OPT in
@@ -24,7 +25,7 @@ while getopts 'r:m:hpd' OPT; do
     e)  EMAIL=$OPTARG;;
     n)  NAME=$OPTARG;;
     p)  PUSH="master";;
-    d)  DEBUG="-qq";;
+    d)  DEBUG="";;
     h)  JELP="yes";;
     *)  JELP="yes";;
   esac
