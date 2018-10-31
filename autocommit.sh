@@ -45,9 +45,9 @@ while true;
 do
   if [ -z "${DEBUG}" ];
   then
-    $INOTIFYWAITBIN -r "${REPODIR}" "@${REPODIR}/.git" -qq
+    $INOTIFYWAITBIN -r "${REPODIR}" "@${REPODIR}/.git/" -qq
   else
-    $INOTIFYWAITBIN -r "${REPODIR}" "@${REPODIR}/.git"
+    $INOTIFYWAITBIN -r "${REPODIR}" "@${REPODIR}/.git/"
   fi
 
   cd $REPODIR
