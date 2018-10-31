@@ -17,13 +17,13 @@ MESSAGE="automated commit"
 EMAIL="autocommit@systemadmin.es"
 NAME="Dr. Auto Commit"
 
-while getopts 'r:m:hp:' OPT; do
+while getopts 'r:m:hp' OPT; do
   case $OPT in
     r)  REPODIR=$OPTARG;;
     m)  MESSAGE=$OPTARG;;
     e)  EMAIL=$OPTARG;;
     n)  NAME=$OPTARG;;
-    p)  if [ -z "$OPTARG" ]; then PUSH="master"; else PUSH=$OPTARG fi;;
+    p)  PUSH="master";;
     h)  JELP="yes";;
     *)  JELP="yes";;
   esac
@@ -49,6 +49,6 @@ do
   git commit -vam "${MESSAGE}"
   if [ ! -z "${PUSH}" ];
   then
-    git push origin "${PUSH}"
+    git push origin master
   fi
 done
