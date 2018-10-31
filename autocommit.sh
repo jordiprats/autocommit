@@ -42,7 +42,7 @@ then
   exit 1
 fi
 
-if [ -z "${DEBUG}" ];
+if [ ! -z "${DEBUG}" ];
 then
   exec > /dev/null 2>&1
 fi
