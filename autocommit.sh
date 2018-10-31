@@ -42,6 +42,11 @@ then
   exit 1
 fi
 
+if [ -z "${DEBUG}" ];
+then
+  exec > /dev/null 2>&1
+fi
+
 while true;
 do
   # access		file or directory contents were read
