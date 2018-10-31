@@ -24,6 +24,7 @@ while getopts 'r:m:hp' OPT; do
     e)  EMAIL=$OPTARG;;
     n)  NAME=$OPTARG;;
     p)  PUSH="master";;
+    d)  DEBUG="yes";;
     h)  JELP="yes";;
     *)  JELP="yes";;
   esac
@@ -42,7 +43,12 @@ fi
 
 while true;
 do
-  $INOTIFYWAITBIN -r "${REPODIR}" "@${REPODIR}/.git" -qq
+  if [ -z "${DEBUG}" ];
+  then
+    $INOTIFYWAITBIN -r "${REPODIR}" "@${REPODIR}/.git" -qq
+  else
+    $INOTIFYWAITBIN -r "${REPODIR}" "@${REPODIR}/.git"
+  fi
 
   cd $REPODIR
   git add --all
