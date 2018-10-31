@@ -17,7 +17,7 @@ MESSAGE="automated commit"
 EMAIL="autocommit@systemadmin.es"
 NAME="Dr. Auto Commit"
 
-while getopts 'r:m:hp' OPT; do
+while getopts 'r:m:hpd' OPT; do
   case $OPT in
     r)  REPODIR=$OPTARG;;
     m)  MESSAGE=$OPTARG;;
