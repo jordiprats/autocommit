@@ -2,7 +2,7 @@
 
 jelp()
 {
-  echo "$0 -r <repo dir> [-m <auto commit message>] [-e <author's email>] [-n <author's name>]"
+  echo "$0 -r <repo dir> [-m <auto commit message>] [-e <author's email>] [-n <author's name>] [-p] [-d]"
 }
 
 INOTIFYWAITBIN=$(which inotifywait 2>/dev/null)
