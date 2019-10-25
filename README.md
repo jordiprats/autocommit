@@ -9,7 +9,7 @@ shell script to automatically commit changes
 ## Usage
 
 ```
-autocommit.sh -r <repo dir> [-m <auto commit message>] [-e <author's email>] [-n <author's name>] [-p] [-d]
+autocommit.sh -r <repo dir> [-m <auto commit message>] [-e <author's email>] [-n <author's name>] [-p] [-d] [-f <file to enable autocommit>]
 ```
 
 Options:
@@ -18,6 +18,7 @@ Options:
 * **-e**: Author's email (default: autocommit@systemadmin.es)
 * **-n**: Author's name (default: Dr. Auto Commit)
 * **-p**: push changes to origin
+* **-f**: file to enable autocommit *(if the file is not present it will stop commiting changes)*
 * **-d**: enable debug
 
 ## Example
