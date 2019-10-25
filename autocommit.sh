@@ -18,7 +18,7 @@ EMAIL="autocommit@systemadmin.es"
 NAME="Dr. Auto Commit"
 DEBUG="-qq"
 
-while getopts 'r:m:hpd' OPT; do
+while getopts 'r:m:hpdf:' OPT; do
   case $OPT in
     r)  REPODIR=$OPTARG;;
     m)  MESSAGE=$OPTARG;;
