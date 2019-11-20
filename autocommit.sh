@@ -2,7 +2,45 @@
 
 jelp()
 {
-  echo "$0 -r <repo dir> [-m <auto commit message>] [-e <author's email>] [-n <author's name>] [-p] [-d] [-f <file to enable autocommit>]"
+  cat <<"EOF"
+
+                  ``        ,#
+                @@@@@@      @@,
+               #@@@@@@#    @@@
+               @@@@@@@@   +@@@
+              `@@@@@@@@` `@@@
+              `@@@@@@@@` @@@#
+               @@@@@@@@ #@@@
+               #@@@@@@#.@@@+
+       .@@@#    +@@@@+ @@@@
+       .@@@@@@@+. ``  @@@@;
+        .@@@@@@@@@@@@@@@@@
+           :@@@@@@@@@@@@@@
+              +@@@@@@@@@@@`
+                 @@@@@@@@@@
+                  ;@@@@@@@@
+                   @@@@@@@@
+                   @@@@@@@@#
+                   @@@@@@@@@
+                   +@@@@@@@@
+                   ;@@@@@@@@
+                   :@@@@@@@@
+                   :@@@@@@@@
+                   ,@@@@@@@@
+                    @@@@@@@@@
+                    @@@@@@@@@
+                    @@@@@@@@@`
+                   .@@@@ @@@@+
+                   :@@@@ ;@@@@
+                   #@@@, ,@@@@
+            +@@;   @@@@  @@@@@
+            @@@@@@@@@@@  @@@@@
+            ;@@@@@@@@@   ;@@@@
+              @@@@@@@+    +@@@
+                `'@'
+
+EOF
+  echo "$0 -r <repo dir> [-m <auto commit message>] [-e <author's email>] [-n <author's name>] [-p] [-d] [-f <file to enable autocommit>] [-b branch name to push to]"
 }
 
 INOTIFYWAITBIN=$(which inotifywait 2>/dev/null)
@@ -18,14 +56,15 @@ EMAIL="autocommit@systemadmin.es"
 NAME="Dr. Auto Commit"
 DEBUG="-qq"
 
-while getopts 'r:m:hpdf:' OPT; do
+while getopts 'r:m:hpdf:b:' OPT; do
   case $OPT in
     r)  REPODIR=$OPTARG;;
     m)  MESSAGE=$OPTARG;;
     e)  EMAIL=$OPTARG;;
     n)  NAME=$OPTARG;;
     f)  FILECHECK=$OPTARG;;
-    p)  PUSH="master";;
+    p)  PUSH="push";;
+    b)  BRANCH=$OPTARG;;
     d)  DEBUG="";;
     h)  JELP="yes";;
     *)  JELP="yes";;
@@ -82,6 +121,11 @@ do
   git commit -vam "${MESSAGE}"
   if [ ! -z "${PUSH}" ];
   then
-    git push origin master
+    if [ -z "${BRANCH}" ];
+    then
+      git push origin master
+    else
+      git push origin "${BRANCH}"
+    fi
   fi
 done
