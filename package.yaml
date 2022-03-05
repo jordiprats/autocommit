@@ -1,0 +1,8 @@
+meta:
+  description: autocommit changes to git
+  vendor: jordiprats
+  maintainer: jordiprats
+files:
+  "/usr/bin/autocommit":
+    file: autocommit
+    mode: "0755"

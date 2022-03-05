@@ -9,7 +9,7 @@ shell script to automatically commit changes
 ## Usage
 
 ```
-autocommit.sh -r <repo dir> [-m <auto commit message>] [-e <author's email>] [-n <author's name>] [-p] [-d] [-f <file to enable autocommit>]
+autocommit -r <repo dir> [-m <auto commit message>] [-e <author's email>] [-n <author's name>] [-p] [-d] [-f <file to enable autocommit>]
 ```
 
 Options:
@@ -24,7 +24,7 @@ Options:
 ## Example
 
 ```
-$ bash autocommit.sh -r /home/jprats/git/autocommit -p -d &
+$ bash autocommit -r /home/jprats/git/autocommit -p -d &
 [1] 19331
 $ Setting up watches.  Beware: since -r was given, this may take a while!
 Watches established.
